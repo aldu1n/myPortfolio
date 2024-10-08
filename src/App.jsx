@@ -1,8 +1,26 @@
 import "./App.css";
+import Lenis from "lenis";
+import gsap from "gsap";
+import ScrollTrigger from "gsap/dist/ScrollTrigger";
+import { Player, Controls } from "@lottiefiles/react-lottie-player";
 
 export default function App() {
+  const lenis = new Lenis();
+
+  lenis.on("scroll", (e) => {
+    console.log(e);
+  });
+
+  lenis.on("scroll", ScrollTrigger.update);
+
+  gsap.ticker.add((time) => {
+    lenis.raf(time * 1000);
+  });
+
+  gsap.ticker.lagSmoothing(0);
+
   return (
-    <div>
+    <>
       <nav>
         <ul>
           <li>
@@ -43,12 +61,31 @@ export default function App() {
           </li>
         </ul>
       </div>
-      <div id="hero">
-        <div>
-          <h1>Hello, my name is Slim Shady</h1>
+      <div id="container">
+        <div id="hero">
+          <h1>
+            <span>Bogdan </span>
+            <span>Tkachuk</span>
+          </h1>
           <p>Front End Developer</p>
+          <p>Full Stack Developer</p>
+          <p>MERN Stack</p>
         </div>
+        <Player
+          autoplay
+          loop
+          src="https://lottie.host/c27d8f1a-7cf1-4f0c-b392-c98fd4691189/IcKDJLvnI0.json"
+          style={{ height: "250px", width: "250px" }}
+        >
+        </Player>
+
+        <section id="about-me">
+          <div id="me">
+            <h2>About Me</h2>
+            <p>Hi, Bla Bla Bla</p>
+          </div>
+        </section>
       </div>
-    </div>
+    </>
   );
 }
