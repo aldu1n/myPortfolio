@@ -21,13 +21,13 @@ export default function App() {
 
   return (
     <>
-      <nav>
+      <nav id="home">
         <ul>
           <li>
-            <a href="">Home</a>
+            <a href="#home">Home</a>
           </li>
           <li>
-            <a href="">About</a>
+            <a href="#about_me">About</a>
           </li>
           <li>
             <a href="">Projects</a>
@@ -40,12 +40,12 @@ export default function App() {
       <div id="sidebar">
         <ul>
           <li>
-            <a href="">
+            <a href="#home">
               <i class="bi bi-house-fill"></i>
             </a>
           </li>
           <li>
-            <a href="">
+            <a href="#about_me">
               <i class="bi bi-file-person-fill"></i>
             </a>
           </li>
@@ -75,14 +75,97 @@ export default function App() {
           autoplay
           loop
           src="https://lottie.host/c27d8f1a-7cf1-4f0c-b392-c98fd4691189/IcKDJLvnI0.json"
-          style={{ height: "250px", width: "250px" }}
-        >
-        </Player>
+          style={{ height: "100px", width: "100px" }}
+        ></Player>
+        <div className="border"></div>
 
-        <section id="about-me">
-          <div id="me">
+        <section id="about_me">
+          <h2>About Me</h2>
+          <div className="about_sm_container">
             <h2>About Me</h2>
             <p>Hi, Bla Bla Bla</p>
+          </div>
+          <div id="code_picture"></div>
+          <div className="about_sm_container align_right">
+            <h2>About Me</h2>
+            <p>Hi, Bla Bla Bla</p>
+          </div>
+          <div id="tech_container">
+            <h2>Technologies and Tools</h2>
+            <ul id="tech_ul">
+              <li>
+                <img src="src\assets\icons\icons8-html.svg" alt="HTML" />
+                <p>HTML</p>
+              </li>
+              <li>
+                <img src="src\assets\icons\icons8-css.svg" alt="CSS" />
+                <p>CSS</p>
+              </li>
+              <li>
+                <img
+                  src="src\assets\icons\icons8-javascript.svg"
+                  alt="JavaScript"
+                />
+                <p>JavaScript</p>
+              </li>
+              <li>
+                <img src="src\assets\icons\icons8-react-js.svg" alt="React" />
+                <p>React</p>
+              </li>
+              <li>
+                <img src="src\assets\icons\icons8-node-js.svg" alt="NodeJS" />
+                <p>NodeJS</p>
+              </li>
+              <li>
+                <img
+                  src="src\assets\icons\icons8-express-js.svg"
+                  alt="Express"
+                />
+                <p>Express</p>
+              </li>
+              <li>
+                <img src="src\assets\icons\icons8-jquery.svg" alt="JQuery" />
+                <p>JQuery</p>
+              </li>
+              <li>
+                <img
+                  src="src\assets\icons\icons8-bootstrap.svg"
+                  alt="Bootstrap"
+                />
+                <p>Bootstrap</p>
+              </li>
+              <li>
+                <img
+                  src="src\assets\icons\icons8-tailwind-css.svg"
+                  alt="Tailwind CSS"
+                />
+                <p>Tailwind CSS</p>
+              </li>
+              <li>
+                <img src="src\assets\icons\icons8-sass.svg" alt="Sass" />
+                <p>Sass</p>
+              </li>
+              <li>
+                <img src="src\assets\icons\icons8-mysql.svg" alt="MySQL" />
+                <p>MySQL</p>
+              </li>
+              <li>
+                <img src="src\assets\icons\icons8-mongodb.svg" alt="MongoDb" />
+                <p>MongoDB</p>
+              </li>
+              <li>
+                <img src="src\assets\icons\icons8-graphql.svg" alt="GraphQL" />
+                <p>GraphQL</p>
+              </li>
+              <li>
+                <img src="src\assets\icons\icons8-postman.svg" alt="Postman" />
+                <p>Postman</p>
+              </li>
+              <li>
+                <img src="src\assets\icons\icons8-heroku.svg" alt="Heroku" />
+                <p>Heroku</p>
+              </li>
+            </ul>
           </div>
         </section>
       </div>
