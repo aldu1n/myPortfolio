@@ -41,11 +41,12 @@ nav ul {
 }
 
 nav ul li {
-    padding: 10px;
+    padding: 5px;
+    border-bottom: 1px solid var(--dark_state_gray);
 }
 
 nav ul li:hover {
-    background-color: var(--light_sea_green);
+    background-color: var(--gunmetal);
     border-radius: 10%;
     color: #ffffff;
 }
@@ -91,9 +92,6 @@ i:hover {
 /* Hero */
 #hero {
     width: 100%;
-    background: linear-gradient(90deg, white 67%, var(--light_sea_green) 33%);
-    border-radius: 50%;
-    align-self: flex-start;
     display: flex;
     flex-direction: column;
     align-items: flex-start;
@@ -130,6 +128,10 @@ h1 span:first-child:after {
 }
 
 /* About Me */
+h2 {
+    padding-bottom: 50px;
+}
+
 #about_me {
     width: 80%;
     display: flex;
@@ -177,6 +179,7 @@ h1 span:first-child:after {
     padding: 10px 55px;
     border-radius: 10px;
     background-color: #ebecf0;
+    box-shadow: 2px 2px 0 #cacbce;
 }
 
 #tech_ul li p {

@@ -1,22 +1,18 @@
 import "./App.css";
+import { useEffect } from "react";
 import Lenis from "lenis";
 import gsap from "gsap";
 import ScrollTrigger from "gsap/dist/ScrollTrigger";
 import { Player, Controls } from "@lottiefiles/react-lottie-player";
 
 export default function App() {
+  // Smooth Scrolling Setup
   const lenis = new Lenis();
 
-  lenis.on("scroll", (e) => {
-    console.log(e);
-  });
-
   lenis.on("scroll", ScrollTrigger.update);
-
   gsap.ticker.add((time) => {
-    lenis.raf(time * 1000);
+    lenis.raf(time * 500);
   });
-
   gsap.ticker.lagSmoothing(0);
 
   return (
@@ -30,10 +26,10 @@ export default function App() {
             <a href="#about_me">About</a>
           </li>
           <li>
-            <a href="">Projects</a>
+            <a href="#projects">Projects</a>
           </li>
           <li>
-            <a href="">Contact</a>
+            <a href="#contact">Contact</a>
           </li>
         </ul>
       </nav>
@@ -41,22 +37,22 @@ export default function App() {
         <ul>
           <li>
             <a href="#home">
-              <i class="bi bi-house-fill"></i>
+              <i className="bi bi-house-fill"></i>
             </a>
           </li>
           <li>
             <a href="#about_me">
-              <i class="bi bi-file-person-fill"></i>
+              <i className="bi bi-file-person-fill"></i>
             </a>
           </li>
           <li>
-            <a href="">
-              <i class="bi bi-briefcase-fill"></i>
+            <a href="#projects">
+              <i className="bi bi-briefcase-fill"></i>
             </a>
           </li>
           <li>
-            <a href="">
-              <i class="bi bi-envelope-fill"></i>
+            <a href="#contact">
+              <i className="bi bi-envelope-fill"></i>
             </a>
           </li>
         </ul>
@@ -81,13 +77,13 @@ export default function App() {
 
         <section id="about_me">
           <h2>About Me</h2>
-          <div className="about_sm_container">
-            <h2>About Me</h2>
+          <div className="about_sm_container move_left">
+            <h3>About Me</h3>
             <p>Hi, Bla Bla Bla</p>
           </div>
           <div id="code_picture"></div>
-          <div className="about_sm_container align_right">
-            <h2>About Me</h2>
+          <div className="about_sm_container align_right move_right">
+            <h3>About Me</h3>
             <p>Hi, Bla Bla Bla</p>
           </div>
           <div id="tech_container">
@@ -168,7 +164,16 @@ export default function App() {
             </ul>
           </div>
         </section>
+
+        <section id="projects">
+          <h2>My Projects</h2>
+        </section>
+
+        <section id="contact">
+          <h2>Contact Me</h2>
+        </section>
       </div>
+      <footer></footer>
     </>
   );
 }
