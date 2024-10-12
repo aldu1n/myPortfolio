@@ -1,8 +1,12 @@
 import "./App.css";
+import ProjectCard from "./components/ProjectCard";
+import City from "./components/City";
 import { useEffect } from "react";
+// Lenis, gsap
 import Lenis from "lenis";
 import gsap from "gsap";
 import ScrollTrigger from "gsap/dist/ScrollTrigger";
+//Lottiefile
 import { Player, Controls } from "@lottiefiles/react-lottie-player";
 
 export default function App() {
@@ -14,6 +18,13 @@ export default function App() {
     lenis.raf(time * 500);
   });
   gsap.ticker.lagSmoothing(0);
+
+  const lightsOn = (e) => {
+    if (e.target.classList.contains("window")) {
+      e.target.classList.toggle("light_on");
+    }
+    console.log(e.target);
+  };
 
   return (
     <>
@@ -59,31 +70,32 @@ export default function App() {
       </div>
       <div id="container">
         <div id="hero">
-          <h1>
-            <span>Bogdan </span>
-            <span>Tkachuk</span>
-          </h1>
-          <p>Front End Developer</p>
-          <p>Full Stack Developer</p>
-          <p>MERN Stack</p>
+          <div id="name_box">
+            <h1>
+              <span>Hi, I am</span>
+              <span>Bogdan</span>
+            </h1>
+            <p>Front End Developer</p>
+            <p>Full Stack Developer</p>
+            <p>MERN Stack</p>
+          </div>
         </div>
-        <Player
-          autoplay
-          loop
-          src="https://lottie.host/c27d8f1a-7cf1-4f0c-b392-c98fd4691189/IcKDJLvnI0.json"
-          style={{ height: "100px", width: "100px" }}
-        ></Player>
-        <div className="border"></div>
+        <div className="lottie_container">
+          <Player
+            autoplay
+            loop
+            src="https://lottie.host/df580c85-3134-4824-b227-52a08138634b/Z6yQlzbtTP.json"
+            style={{ height: "100px", width: "100px", color: "(255,255,255)" }}
+          ></Player>
+        </div>
 
         <section id="about_me">
           <h2>About Me</h2>
           <div className="about_sm_container move_left">
-            <h3>About Me</h3>
             <p>Hi, Bla Bla Bla</p>
           </div>
           <div id="code_picture"></div>
           <div className="about_sm_container align_right move_right">
-            <h3>About Me</h3>
             <p>Hi, Bla Bla Bla</p>
           </div>
           <div id="tech_container">
@@ -167,13 +179,20 @@ export default function App() {
 
         <section id="projects">
           <h2>My Projects</h2>
+          <div id="project_container"></div>
         </section>
 
         <section id="contact">
           <h2>Contact Me</h2>
         </section>
       </div>
-      <footer></footer>
+      <footer>
+        <div id="border_bottom"></div>
+        <div id="city_box" onClick={lightsOn}>
+          <City />
+        </div>
+        <h4>Made by Bogdan Tkachuk</h4>
+      </footer>
     </>
   );
 }
