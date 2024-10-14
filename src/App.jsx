@@ -23,7 +23,6 @@ export default function App() {
     if (e.target.classList.contains("window")) {
       e.target.classList.toggle("light_on");
     }
-    console.log(e.target);
   };
 
   return (
@@ -184,6 +183,47 @@ export default function App() {
 
         <section id="contact">
           <h2>Contact Me</h2>
+          <div id="contact_box">
+            <form>
+              <div className="input_container">
+                <label for="fullName">Full Name</label>
+                <input type="text" name="fullName" id="full_name"></input>
+              </div>
+              <div className="input_container">
+                <label for="email">Email</label>
+                <input type="email" name="email" id="email"></input>
+              </div>
+              <div className="input_container">
+                <label for="fullName">Message</label>
+                <textarea
+                  title="message"
+                  id="message"
+                  name="message"
+                ></textarea>
+              </div>
+              <button id="submit_btn" type="submit">
+                <i className="bi bi-send-fill"></i>
+                Send Message
+              </button>
+            </form>
+            <div id="social_container">
+              <div id="social_box">
+                <h2>Social</h2>
+                <div id="social_icons">
+                  <a>
+                    <i className="bi bi-stack-overflow"></i>
+                  </a>
+                  <a>
+                    <i className="bi bi-github"></i>
+                  </a>
+                  <a>
+                    <i className="bi bi-linkedin"></i>
+                  </a>
+                </div>
+              </div>
+              <img />
+            </div>
+          </div>
         </section>
       </div>
       <footer>
