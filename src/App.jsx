@@ -16,6 +16,8 @@ export default function App() {
   let triggerSection = useRef(null);
 
   const [activeLink, setActiveLink] = useState("home");
+  const [lightPercentage, setPercentage] = useState(0);
+  const [lightsCurrent, setLightsCurrent] = useState(0);
 
   useEffect(() => {
     gsap.set(aboutMeLeft, {
@@ -52,7 +54,6 @@ export default function App() {
         trigger: triggerSection,
         start: "top bottom",
         end: "top 80%",
-        markers: true,
         scrub: 1,
       },
       xPercent: -250,
@@ -82,7 +83,19 @@ export default function App() {
     return () => {
       window.removeEventListener("scroll", handleScroll);
     };
+
   }, []);
+
+  useEffect(() => {
+    const lightsTotal = document.querySelectorAll('.window').length;
+
+    function getLightPercentage() {
+      const result = (100 * lightsCurrent) / lightsTotal;
+      return Math.round(result);
+    }
+
+    setPercentage(getLightPercentage());
+  }, [lightsCurrent]);
 
   // Smooth Scrolling Setup
   gsap.registerPlugin(ScrollTrigger);
@@ -96,9 +109,11 @@ export default function App() {
 
   const lightsOn = (e) => {
     if (e.target.classList.contains("window")) {
+      setLightsCurrent(lightsCurrent + 1);
       e.target.classList.toggle("light_on");
     }
   };
+
 
   const submitBtn = (e) => {
     e.preventDefault();
@@ -329,13 +344,13 @@ export default function App() {
               <div id="social_box">
                 <h2>Social</h2>
                 <div id="social_icons">
-                  <a>
+                  <a href='https://stackoverflow.com/users/27798071/aldu1n' target=" _blank">
                     <i className="bi bi-stack-overflow"></i>
                   </a>
-                  <a>
+                  <a href="https://github.com/aldu1n" target=" _blank">
                     <i className="bi bi-github"></i>
                   </a>
-                  <a>
+                  <a href="https://www.linkedin.com/in/bogdan-tkachuk-5b103b300/" target=" _blank">
                     <i className="bi bi-linkedin"></i>
                   </a>
                 </div>
@@ -346,8 +361,10 @@ export default function App() {
         </section>
       </div>
       <footer>
-        <div id="border_bottom"></div>
+        <div id="border_bottom">
+        </div>
         <div id="city_box" onClick={lightsOn}>
+          <h2>Lights Restored: {lightPercentage} %</h2>
           <City />
         </div>
         <h4>Made by Bogdan Tkachuk</h4>

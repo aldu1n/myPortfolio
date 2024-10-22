@@ -299,6 +299,15 @@ h2 {
     padding: 20px;
     border-radius: 30px;
     font-size: 1em;
+    transition: background-color 500ms ease-in-out;
+    cursor: pointer;
+}
+
+#submit_btn:hover {
+    background-color: #cacbce;
+}
+#submit_btn:focus {
+    background-color: #121212;
 }
 
 #submit_btn i {
@@ -329,6 +338,21 @@ h2 {
 #social_icons i {
     font-size: 30px;
 }
+
+.bi {
+    cursor: pointer;
+    transition: color 500ms ease-in-out;
+}
+
+.bi-stack-overflow:hover {
+    color: orange;
+}
+.bi-github:hover {
+    color: purple;
+}
+.bi-linkedin:hover {
+    color: blue;
+}
 /* Footer */
 
 footer {
@@ -350,6 +374,10 @@ footer {
 
 #city_box svg {
     height: 900px;
+}
+
+#city_box h2 {
+    color: yellow;
 }
 
 .light_on {
