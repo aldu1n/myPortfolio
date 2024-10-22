@@ -1,7 +1,7 @@
 import "./App.css";
 import ProjectCard from "./components/ProjectCard";
 import City from "./components/City";
-import { useEffect } from "react";
+import { useEffect, useRef, useState } from "react";
 // Lenis, gsap
 import Lenis from "lenis";
 import gsap from "gsap";
@@ -10,12 +10,87 @@ import ScrollTrigger from "gsap/dist/ScrollTrigger";
 import { Player, Controls } from "@lottiefiles/react-lottie-player";
 
 export default function App() {
+  let aboutMeLeft = useRef(null);
+  let aboutMeRight = useRef(null);
+  let sidebar = useRef(null);
+  let triggerSection = useRef(null);
+
+  const [activeLink, setActiveLink] = useState("home");
+
+  useEffect(() => {
+    gsap.set(aboutMeLeft, {
+      xPercent: -100,
+      opacity: 0,
+    });
+    gsap.set(aboutMeRight, {
+      xPercent: 100,
+      opacity: 0,
+    });
+
+    gsap.to(aboutMeLeft, {
+      scrollTrigger: {
+        trigger: aboutMeLeft,
+        start: "top center",
+        end: "bottom bottom",
+        scrub: 1,
+      },
+      xPercent: 0,
+      opacity: 1,
+    });
+    gsap.to(aboutMeRight, {
+      scrollTrigger: {
+        trigger: aboutMeRight,
+        start: "top 70%",
+        end: "bottom bottom",
+        scrub: 1,
+      },
+      xPercent: 0,
+      opacity: 1,
+    });
+    gsap.to(sidebar, {
+      scrollTrigger: {
+        trigger: triggerSection,
+        start: "top bottom",
+        end: "top 80%",
+        markers: true,
+        scrub: 1,
+      },
+      xPercent: -250,
+      opacity: 1,
+    });
+  }, []);
+
+  useEffect(() => {
+    const sections = document.querySelectorAll("section");
+
+    const handleScroll = () => {
+      sections.forEach((section) => {
+        const sectionTop = section.getBoundingClientRect().top;
+        const sectionHeight = section.offsetHeight;
+
+        if (
+          sectionTop <= window.innerHeight / 2 &&
+          sectionTop + sectionHeight > window.innerHeight / 2
+        ) {
+          setActiveLink(section.id);
+        }
+      });
+    };
+
+    window.addEventListener("scroll", handleScroll);
+
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, []);
+
   // Smooth Scrolling Setup
+  gsap.registerPlugin(ScrollTrigger);
   const lenis = new Lenis();
 
   lenis.on("scroll", ScrollTrigger.update);
   gsap.ticker.add((time) => {
-    lenis.raf(time * 500);
+    lenis.raf(time * 700);
   });
   gsap.ticker.lagSmoothing(0);
 
@@ -23,6 +98,10 @@ export default function App() {
     if (e.target.classList.contains("window")) {
       e.target.classList.toggle("light_on");
     }
+  };
+
+  const submitBtn = (e) => {
+    e.preventDefault();
   };
 
   return (
@@ -43,25 +122,39 @@ export default function App() {
           </li>
         </ul>
       </nav>
-      <div id="sidebar">
+      <div
+        id="sidebar"
+        ref={(el) => {
+          sidebar = el;
+        }}
+      >
         <ul>
           <li>
-            <a href="#home">
+            <a href="#home" className={activeLink === "home" ? "active" : ""}>
               <i className="bi bi-house-fill"></i>
             </a>
           </li>
           <li>
-            <a href="#about_me">
+            <a
+              href="#about_me"
+              className={activeLink === "about_me" ? "active" : ""}
+            >
               <i className="bi bi-file-person-fill"></i>
             </a>
           </li>
           <li>
-            <a href="#projects">
+            <a
+              href="#projects"
+              className={activeLink === "projects" ? "active" : ""}
+            >
               <i className="bi bi-briefcase-fill"></i>
             </a>
           </li>
           <li>
-            <a href="#contact">
+            <a
+              href="#contact"
+              className={activeLink === "contact" ? "active" : ""}
+            >
               <i className="bi bi-envelope-fill"></i>
             </a>
           </li>
@@ -88,14 +181,40 @@ export default function App() {
           ></Player>
         </div>
 
-        <section id="about_me">
+        <section
+          id="about_me"
+          ref={(el) => {
+            triggerSection = el;
+          }}
+        >
           <h2>About Me</h2>
-          <div className="about_sm_container move_left">
-            <p>Hi, Bla Bla Bla</p>
+          <div
+            ref={(el) => {
+              aboutMeLeft = el;
+            }}
+            className="about_sm_container move_left"
+          >
+            <p>
+              Hello! I’m Bogdan Tkachuk, a passionate web developer dedicated to
+              creating seamless and engaging digital experiences. With a
+              background in front-end web development, I specialize in building
+              responsive websites that not only look great but also perform
+              exceptionally.
+            </p>
           </div>
           <div id="code_picture"></div>
-          <div className="about_sm_container align_right move_right">
-            <p>Hi, Bla Bla Bla</p>
+          <div
+            ref={(el) => {
+              aboutMeRight = el;
+            }}
+            className="about_sm_container align_right move_right"
+          >
+            <p>
+              My journey into web development began with a curiosity for how
+              things work behind the scenes. I’ve honed my skills in HTML, CSS,
+              JavaScript, React, and I thrive on turning ideas into reality
+              through clean, efficient code.
+            </p>
           </div>
           <div id="tech_container">
             <h2>Technologies and Tools</h2>
@@ -201,7 +320,7 @@ export default function App() {
                   name="message"
                 ></textarea>
               </div>
-              <button id="submit_btn" type="submit">
+              <button id="submit_btn" type="submit" onClick={submitBtn}>
                 <i className="bi bi-send-fill"></i>
                 Send Message
               </button>
