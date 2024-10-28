@@ -229,14 +229,25 @@ h2 {
 }
 
 /* Projects */
+#projects {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#projects h2 {
+    margin-top: 50px;
+}
 
 #project_container {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+    grid-template-columns: repeat(2, 1fr);
 }
 
 /* Contact Me */
 #contact {
+    margin-top: 50px;
     width: 60%;
     display: flex;
     flex-direction: column;
@@ -264,6 +275,7 @@ h2 {
     display: flex;
     flex-direction: column;
 }
+
 #contact_box form label {
     font-size: 1.2em;
     color: #282828;
@@ -277,6 +289,7 @@ h2 {
     border-bottom: 1px solid #121212;
     font-size: 1.1em;
 }
+
 #message {
     border: none;
     border-bottom: 1px solid #121212;
@@ -284,9 +297,11 @@ h2 {
     font-size: 1.1em;
     height: 200px;
 }
+
 #message:focus {
     border-bottom: 2px solid #121212;
 }
+
 #contact_box form input:focus {
     border-bottom: 2px solid #121212;
 }
@@ -306,6 +321,7 @@ h2 {
 #submit_btn:hover {
     background-color: #cacbce;
 }
+
 #submit_btn:focus {
     background-color: #121212;
 }
@@ -330,6 +346,7 @@ h2 {
     display: flex;
     flex-direction: column;
 }
+
 #social_icons {
     display: flex;
     justify-content: space-evenly;
@@ -347,12 +364,15 @@ h2 {
 .bi-stack-overflow:hover {
     color: orange;
 }
+
 .bi-github:hover {
     color: purple;
 }
+
 .bi-linkedin:hover {
     color: blue;
 }
+
 /* Footer */
 
 footer {

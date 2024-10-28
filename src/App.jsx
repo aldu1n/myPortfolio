@@ -83,11 +83,10 @@ export default function App() {
     return () => {
       window.removeEventListener("scroll", handleScroll);
     };
-
   }, []);
 
   useEffect(() => {
-    const lightsTotal = document.querySelectorAll('.window').length;
+    const lightsTotal = document.querySelectorAll(".window").length;
 
     function getLightPercentage() {
       const result = (100 * lightsCurrent) / lightsTotal;
@@ -113,7 +112,6 @@ export default function App() {
       e.target.classList.toggle("light_on");
     }
   };
-
 
   const submitBtn = (e) => {
     e.preventDefault();
@@ -312,7 +310,38 @@ export default function App() {
 
         <section id="projects">
           <h2>My Projects</h2>
-          <div id="project_container"></div>
+          <div id="project_container">
+            <ProjectCard
+              name={"ActivateMe"}
+              category={"Activity Tracker"}
+              description={
+                "ActivateMe is designed to empower users to track their daily activities and foster healthier habits. Users can easily monitor routines like exercise, nutrition, and sleep to enhance productivity and overall well-being."
+              }
+              imgLink={"src/assets/images/activate-me.jpg"}
+              deployedLink={"https://activateme.onrender.com/"}
+              gitHubLink={"https://github.com/aldu1n/ActivateMe"}
+            />
+            <ProjectCard
+              name={"J.A.T.E - Just Another Text Editor"}
+              category={"Text Editor"}
+              description={
+                "This project is a lightweight, browser-based JavaScript text editor designed as a single-page application (SPA) that meets PWA standards. It features multiple data persistence techniques for redundancy and offline functionality."
+              }
+              imgLink={"src/assets/images/jate.jpg"}
+              deployedLink={"https://texteditor-llpg.onrender.com/"}
+              gitHubLink={"https://github.com/aldu1n/pwa-text-editor"}
+            />
+            <ProjectCard
+              name={"bookSearchEngine"}
+              category={"Book Search"}
+              description={
+                "This project is a fully functional Google Books API search engine with a GraphQL API implemented using Apollo Server. Users can search for books, create accounts, and save their favorites. Built on the MERN stack, it features a React front end, MongoDB database, and Node.js/Express.js server."
+              }
+              imgLink={"src/assets/images/book-search.jpg"}
+              deployedLink={"https://booksearchengine-mdkr.onrender.com/"}
+              gitHubLink={"https://github.com/aldu1n/book-search-engine"}
+            />
+          </div>
         </section>
 
         <section id="contact">
@@ -344,13 +373,19 @@ export default function App() {
               <div id="social_box">
                 <h2>Social</h2>
                 <div id="social_icons">
-                  <a href='https://stackoverflow.com/users/27798071/aldu1n' target=" _blank">
+                  <a
+                    href="https://stackoverflow.com/users/27798071/aldu1n"
+                    target=" _blank"
+                  >
                     <i className="bi bi-stack-overflow"></i>
                   </a>
                   <a href="https://github.com/aldu1n" target=" _blank">
                     <i className="bi bi-github"></i>
                   </a>
-                  <a href="https://www.linkedin.com/in/bogdan-tkachuk-5b103b300/" target=" _blank">
+                  <a
+                    href="https://www.linkedin.com/in/bogdan-tkachuk-5b103b300/"
+                    target=" _blank"
+                  >
                     <i className="bi bi-linkedin"></i>
                   </a>
                 </div>
@@ -361,8 +396,7 @@ export default function App() {
         </section>
       </div>
       <footer>
-        <div id="border_bottom">
-        </div>
+        <div id="border_bottom"></div>
         <div id="city_box" onClick={lightsOn}>
           <h2>Lights Restored: {lightPercentage} %</h2>
           <City />
