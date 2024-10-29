@@ -200,7 +200,7 @@ export default function App() {
             triggerSection = el;
           }}
         >
-          <h2>About Me</h2>
+          <h2 className="section_header">About Me</h2>
           <div
             ref={(el) => {
               aboutMeLeft = el;
@@ -230,78 +230,78 @@ export default function App() {
             </p>
           </div>
           <div id="tech_container">
-            <h2>Technologies and Tools</h2>
+            <h2 className="section_header">Technologies and Tools</h2>
             <ul id="tech_ul">
               <li>
-                <img src="src\assets\icons\icons8-html.svg" alt="HTML" />
+                <img src="/icons/icons8-html.svg" alt="HTML" />
                 <p>HTML</p>
               </li>
               <li>
-                <img src="src\assets\icons\icons8-css.svg" alt="CSS" />
+                <img src="/icons/icons8-css.svg" alt="CSS" />
                 <p>CSS</p>
               </li>
               <li>
                 <img
-                  src="src\assets\icons\icons8-javascript.svg"
+                  src="/icons/icons8-javascript.svg"
                   alt="JavaScript"
                 />
                 <p>JavaScript</p>
               </li>
               <li>
-                <img src="src\assets\icons\icons8-react-js.svg" alt="React" />
+                <img src="/icons/icons8-react-js.svg" alt="React" />
                 <p>React</p>
               </li>
               <li>
-                <img src="src\assets\icons\icons8-node-js.svg" alt="NodeJS" />
+                <img src="/icons/icons8-node-js.svg" alt="NodeJS" />
                 <p>NodeJS</p>
               </li>
               <li>
                 <img
-                  src="src\assets\icons\icons8-express-js.svg"
+                  src="/icons/icons8-express-js.svg"
                   alt="Express"
                 />
                 <p>Express</p>
               </li>
               <li>
-                <img src="src\assets\icons\icons8-jquery.svg" alt="JQuery" />
+                <img src="/icons/icons8-jquery.svg" alt="JQuery" />
                 <p>JQuery</p>
               </li>
               <li>
                 <img
-                  src="src\assets\icons\icons8-bootstrap.svg"
+                  src="/icons/icons8-bootstrap.svg"
                   alt="Bootstrap"
                 />
                 <p>Bootstrap</p>
               </li>
               <li>
                 <img
-                  src="src\assets\icons\icons8-tailwind-css.svg"
+                  src="/icons/icons8-tailwind-css.svg"
                   alt="Tailwind CSS"
                 />
                 <p>Tailwind CSS</p>
               </li>
               <li>
-                <img src="src\assets\icons\icons8-sass.svg" alt="Sass" />
+                <img src="/icons/icons8-sass.svg" alt="Sass" />
                 <p>Sass</p>
               </li>
               <li>
-                <img src="src\assets\icons\icons8-mysql.svg" alt="MySQL" />
+                <img src="/icons/icons8-mysql.svg" alt="MySQL" />
                 <p>MySQL</p>
               </li>
               <li>
-                <img src="src\assets\icons\icons8-mongodb.svg" alt="MongoDb" />
+                <img src="/icons/icons8-mongodb.svg" alt="MongoDb" />
                 <p>MongoDB</p>
               </li>
               <li>
-                <img src="src\assets\icons\icons8-graphql.svg" alt="GraphQL" />
+                <img src="/icons/icons8-graphql.svg" alt="GraphQL" />
                 <p>GraphQL</p>
               </li>
               <li>
-                <img src="src\assets\icons\icons8-postman.svg" alt="Postman" />
+                <img src="/icons/icons8-postman.svg" alt="Postman" />
                 <p>Postman</p>
               </li>
               <li>
-                <img src="src\assets\icons\icons8-heroku.svg" alt="Heroku" />
+                <img src="/icons/icons8-heroku.svg" alt="Heroku" />
                 <p>Heroku</p>
               </li>
             </ul>
@@ -309,7 +309,7 @@ export default function App() {
         </section>
 
         <section id="projects">
-          <h2>My Projects</h2>
+          <h2 className="section_header">My Projects</h2>
           <div id="project_container">
             <ProjectCard
               name={"ActivateMe"}
@@ -317,7 +317,7 @@ export default function App() {
               description={
                 "ActivateMe is designed to empower users to track their daily activities and foster healthier habits. Users can easily monitor routines like exercise, nutrition, and sleep to enhance productivity and overall well-being."
               }
-              imgLink={"src/assets/images/activate-me.jpg"}
+              imgLink={"images/activate-me.jpg"}
               deployedLink={"https://activateme.onrender.com/"}
               gitHubLink={"https://github.com/aldu1n/ActivateMe"}
             />
@@ -327,7 +327,7 @@ export default function App() {
               description={
                 "This project is a lightweight, browser-based JavaScript text editor designed as a single-page application (SPA) that meets PWA standards. It features multiple data persistence techniques for redundancy and offline functionality."
               }
-              imgLink={"src/assets/images/jate.jpg"}
+              imgLink={"/images/jate.jpg"}
               deployedLink={"https://texteditor-llpg.onrender.com/"}
               gitHubLink={"https://github.com/aldu1n/pwa-text-editor"}
             />
@@ -337,7 +337,7 @@ export default function App() {
               description={
                 "This project is a fully functional Google Books API search engine with a GraphQL API implemented using Apollo Server. Users can search for books, create accounts, and save their favorites. Built on the MERN stack, it features a React front end, MongoDB database, and Node.js/Express.js server."
               }
-              imgLink={"src/assets/images/book-search.jpg"}
+              imgLink={"images/book-search.jpg"}
               deployedLink={"https://booksearchengine-mdkr.onrender.com/"}
               gitHubLink={"https://github.com/aldu1n/book-search-engine"}
             />
@@ -345,7 +345,7 @@ export default function App() {
         </section>
 
         <section id="contact">
-          <h2>Contact Me</h2>
+          <h2 className="section_header">Contact Me</h2>
           <div id="contact_box">
             <form>
               <div className="input_container">
